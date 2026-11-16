@@ -1,0 +1,63 @@
+{
+  "codeQuality": {
+    "score": 65,
+    "issues": [
+      {
+        "severity": "critical",
+        "message": "Hardcoded payment API key found - serious security vulnerability",
+        "file": "src/services/paymentService.ts",
+        "line": 12
+      },
+      {
+        "severity": "critical",
+        "message": "SQL injection vulnerability in user upgrade query",
+        "file": "src/services/subscriptionService.ts",
+        "line": 145
+      },
+      {
+        "severity": "high",
+        "message": "Sensitive user data (credit card info) logged to console",
+        "file": "src/services/paymentService.ts",
+        "line": 89
+      }
+    ],
+    "metrics": {
+      "complexity": 18.5,
+      "maintainability": 52,
+      "duplication": 15.2
+    }
+  },
+  "testCoverage": {
+    "coverage": 38,
+    "uncoveredFiles": [
+      "src/services/paymentService.ts",
+      "src/services/subscriptionService.ts",
+      "src/api/paymentController.ts",
+      "src/components/SubscriptionModal.tsx"
+    ],
+    "recommendations": [
+      "Add comprehensive unit tests for paymentService - critical for financial transactions",
+      "Add integration tests for complete payment flow",
+      "Add security-focused tests - verify authentication and SQL injection prevention",
+      "Add tests for SubscriptionModal - verify modal behavior and payment integration"
+    ]
+  },
+  "refactoring": {
+    "suggestions": [
+      {
+        "type": "Security Hardening",
+        "description": "URGENT: Move hardcoded payment API key to environment variables",
+        "file": "src/services/paymentService.ts",
+        "priority": "high"
+      },
+      {
+        "type": "Security Hardening",
+        "description": "URGENT: Replace string concatenation with parameterized SQL queries",
+        "file": "src/services/subscriptionService.ts",
+        "priority": "high"
+      }
+    ]
+  },
+  "summary": "CRITICAL: Score 65/100 with serious security vulnerabilities. Hardcoded API key and SQL injection must be fixed immediately. Test coverage at 38% is unacceptable for payment functionality. DO NOT MERGE until security issues resolved.",
+  "timestamp": "2026-11-16T11:36:15.749Z"
+}
